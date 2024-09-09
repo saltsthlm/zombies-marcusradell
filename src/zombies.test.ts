@@ -1,6 +1,17 @@
-import { deepEqual } from "node:assert/strict";
+import { fail } from "node:assert";
+import { ok } from "node:assert/strict";
 import { test } from "node:test";
 
-test("deepEqual", () => {
-  deepEqual({ a: 1 }, { a: 1 });
+const createRoom = () => {
+  return {
+    isFull: () => false,
+  };
+};
+
+test("room is not full", () => {
+  const room = createRoom();
+
+  const result = room.isFull();
+
+  ok(!result);
 });
