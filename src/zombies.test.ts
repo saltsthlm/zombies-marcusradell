@@ -18,3 +18,5 @@ test("room is not full", () => {
 });
 
 test.skip("empty room that fits one zombie is not full", () => {});
+
+test.skip("one-roomer becomes full when a zombie is added", () => {});
