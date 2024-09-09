@@ -24,3 +24,7 @@ test.skip("empty room cannot fit any zombies", () => {});
 test.skip("one-roomer becomes full when a zombie is added", () => {});
 
 test.skip("two-roomer is not full when a zombie is added", () => {});
+
+test.skip("second zombie consumes first zombie when added to a one-roomer", () => {});
+
+// You are free to add more tests that you think are relevant!
