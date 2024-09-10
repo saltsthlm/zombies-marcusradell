@@ -4,11 +4,18 @@ import { test } from "node:test";
 
 const createRoom = (capacity: number) => {
   const _capacity = capacity;
+  let _zombies: string[] = [];
 
   return {
     isFull: () => !Boolean(_capacity),
-    addZombie: (zombie: string) => {},
-    getZombies: () => [],
+    addZombie: (zombie: string) => {
+      if (_capacity === 0) {
+        return;
+      }
+
+      _zombies.push(zombie);
+    },
+    getZombies: () => _zombies,
   };
 };
 
