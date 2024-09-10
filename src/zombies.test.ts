@@ -9,7 +9,7 @@ const createRoom = (capacity: number) => {
   };
 };
 
-test("room is not full", () => {
+test("room is full", () => {
   const room = createRoom(0);
 
   const result = room.isFull();
