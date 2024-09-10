@@ -36,9 +36,9 @@ test("room is full", () => {
 test("empty room that fits one zombie is not full", () => {
   const room = createRoom(1);
 
-  const result = !room.isFull();
+  const doesRoomHaveSpace = !room.isFull();
 
-  ok(result);
+  ok(doesRoomHaveSpace);
 });
 
 test("empty room cannot fit any zombies", () => {
