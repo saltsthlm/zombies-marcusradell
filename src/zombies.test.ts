@@ -1,3 +1,4 @@
+import { deepEqual } from "node:assert";
 import { ok } from "node:assert/strict";
 import { test } from "node:test";
 
@@ -6,6 +7,8 @@ const createRoom = (capacity: number) => {
 
   return {
     isFull: () => !Boolean(_capacity),
+    addZombie: (zombie: string) => {},
+    getZombies: () => [],
   };
 };
 
@@ -25,7 +28,14 @@ test("empty room that fits one zombie is not full", () => {
   ok(result);
 });
 
-test.skip("empty room cannot fit any zombies", () => {});
+test("empty room cannot fit any zombies", () => {
+  const room = createRoom(0);
+
+  room.addZombie("Earl");
+  const zombies = room.getZombies();
+
+  deepEqual(zombies, []);
+});
 
 test.skip("one-roomer becomes full when a zombie is added", () => {});
 
