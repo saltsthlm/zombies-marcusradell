@@ -15,6 +15,10 @@ const createRoom = (capacity: number) => {
         return;
       }
 
+      if (_zombies.length === _capacity) {
+        _zombies.shift();
+      }
+
       _zombies.push(zombie);
     },
     getZombies: () => _zombies,
@@ -64,6 +68,14 @@ test("two-roomer is not full when a zombie is added", () => {
   ok(doesRoomHaveSpace);
 });
 
-test.skip("second zombie consumes first zombie when added to a one-roomer", () => {});
+test("second zombie consumes first zombie when added to a one-roomer", () => {
+  const room = createRoom(1);
+
+  room.addZombie("Zarah");
+  room.addZombie("Earl");
+  const zombies = room.getZombies();
+
+  deepEqual(zombies, ["Earl"]);
+});
 
 // You are free to add more tests that you think are relevant!
